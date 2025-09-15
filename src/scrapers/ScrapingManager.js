@@ -1,4 +1,5 @@
 const SimpleScraper = require('./SimpleScraper');
+const BlogScraper = require('./BlogScraper');
 const logger = require('../utils/logger');
 const config = require('../config/config');
 
@@ -11,7 +12,9 @@ class ScrapingManager {
     logger.info('Initializing scraping manager...');
 
     for (const target of config.scrapeTargets) {
-      const scraper = new SimpleScraper(target);
+      const scraper = target.name === 'google-ai'
+        ? new BlogScraper(target)
+        : new SimpleScraper(target);
       this.scrapers.push(scraper);
     }
 

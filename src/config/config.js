@@ -17,6 +17,15 @@ const config = {
         description: '.hero-description',
         features: '.capabilities li'
       }
+    },
+    {
+      name: 'google-ai',
+      url: 'https://research.google/blog/',
+      selectors: {
+        title: 'h1',
+        description: 'meta[name="description"]',
+        posts: '.blog-post-title'
+      }
     }
   ],
 
